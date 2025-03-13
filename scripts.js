@@ -13,43 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Form submission handling
-    const contactForm = document.querySelector('#contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // Simulate form submission
-            console.log('Form submitted with:', { name, email, message });
-            
-            // Show success message
-            const formGroups = document.querySelectorAll('.form-group');
-            formGroups.forEach(group => group.style.display = 'none');
-            
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            submitBtn.style.display = 'none';
-            
-            const successMessage = document.createElement('div');
-            successMessage.className = 'success-message';
-            successMessage.innerHTML = `
-                <i class="fas fa-check-circle"></i>
-                <p>Thank you for your message, ${name}! I'll get back to you soon.</p>
-            `;
-            contactForm.appendChild(successMessage);
-            
-            // Reset form after 5 seconds
-            setTimeout(() => {
-                formGroups.forEach(group => group.style.display = 'block');
-                submitBtn.style.display = 'inline-block';
-                successMessage.remove();
-                contactForm.reset();
-            }, 5000);
-        });
-    }
-
     // Animation on scroll
     const observerOptions = {
         threshold: 0.1
@@ -275,59 +238,69 @@ document.addEventListener('DOMContentLoaded', () => {
             color: #b0b0b0;
         }
         
-        body.dark-mode input,
-        body.dark-mode textarea {
+        body.dark-mode .contact-method {
             background: #2a2a2a;
-            color: #e5e5e5;
-            border: 1px solid #333333;
         }
         
-        body.dark-mode input::placeholder,
-        body.dark-mode textarea::placeholder {
-            color: #888888;
+        body.dark-mode .contact-method i {
+            color: #e5e5e5;
+        }
+        
+        body.dark-mode .skill-progress {
+            background-color: #2a2a2a;
+        }
+        
+        body.dark-mode .skill-progress-bar {
+            background-color: #555555;
         }
     `;
     document.head.appendChild(darkModeStyles);
     
-    // Add CSS for contact form
-    const contactFormStyles = document.createElement('style');
-    contactFormStyles.textContent = `
-        .contact-form {
-            max-width: 600px;
-            margin: 2rem auto 0;
+    // Enhanced skill progress bar animation
+    const skillSections = document.querySelectorAll('.skills');
+    
+    // Function to animate skill bars
+    function animateSkillBars(section) {
+        const progressBars = section.querySelectorAll('.skill-progress-bar');
+        progressBars.forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0';
+            setTimeout(() => {
+                bar.style.width = width;
+                bar.classList.add('animated');
+            }, 300);
+        });
+    }
+    
+    // Initial animation for visible skill sections
+    skillSections.forEach(section => {
+        if (isElementInViewport(section)) {
+            animateSkillBars(section);
         }
+    });
+    
+    // Helper function to check if element is in viewport
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+    
+    // Contact method hover effects
+    const contactMethods = document.querySelectorAll('.contact-method');
+    contactMethods.forEach(method => {
+        method.addEventListener('mouseenter', () => {
+            method.style.transform = 'translateY(-5px)';
+            method.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
+        });
         
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.5rem;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #121212;
-        }
-        
-        .success-message {
-            text-align: center;
-            padding: 2rem;
-            color: #22c55e;
-        }
-        
-        .success-message i {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-    `;
-    document.head.appendChild(contactFormStyles);
+        method.addEventListener('mouseleave', () => {
+            method.style.transform = 'translateY(0)';
+            method.style.boxShadow = 'none';
+        });
+    });
 });
