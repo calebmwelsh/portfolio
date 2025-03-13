@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caleb Welsh - Portfolio</title>
-    <link href="./css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
@@ -13,11 +13,11 @@
         <div class="nav-content">
             <div class="logo">CW</div>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#resume">Resume</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about"><span class="nav-number">1</span>About</a></li>
+                <li><a href="#skills"><span class="nav-number">2</span>Skills</a></li>
+                <li><a href="#projects"><span class="nav-number">3</span>Projects</a></li>
+                <li><a href="#resume"><span class="nav-number">4</span>Resume</a></li>
+                <li><a href="#contact"><span class="nav-number">5</span>Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="./images/image.jpeg" alt="Caleb Welsh">
+                <img src="1597785929513.jpg" alt="Caleb Welsh">
             </div>
         </div>
     </header>
@@ -43,7 +43,10 @@
     <section id="about" class="about">
         <div class="section-content">
             <h2>About Me</h2>
-            <p>I am an experienced security engineer and researcher with a background in IT, automation, and cloud security. Currently pursuing my MSDS at Purdue University, I specialize in cybersecurity, system architecture, and data analysis.</p>
+            <div class="about-text">
+                <p>I am an experienced security engineer and researcher with a background in IT, automation, and cloud security. Currently pursuing my MSDS at Purdue University, I specialize in cybersecurity, system architecture, and data analysis.</p>
+                <p>I'm particularly interested in how security automation and machine learning can enhance threat detection and response capabilities. Through my work and projects, I've gained hands-on experience in developing security solutions that protect critical infrastructure and data.</p>
+            </div>
         </div>
     </section>
 
@@ -58,6 +61,7 @@
                         <li>Incident Response</li>
                         <li>Security Automation</li>
                         <li>Threat Intelligence</li>
+                        <li>Vulnerability Assessment</li>
                     </ul>
                 </div>
                 <div class="skill-category">
@@ -66,6 +70,7 @@
                         <li>AWS, Azure</li>
                         <li>Infrastructure as Code</li>
                         <li>Container Security</li>
+                        <li>Network Security</li>
                     </ul>
                 </div>
                 <div class="skill-category">
@@ -74,6 +79,16 @@
                         <li>Python, Bash, JavaScript</li>
                         <li>SIEM & Security Tools</li>
                         <li>Elastic Stack, Security Onion</li>
+                        <li>API Development</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Problem-Solving</li>
+                        <li>Team Leadership</li>
+                        <li>Project Management</li>
+                        <li>Technical Communication</li>
                     </ul>
                 </div>
             </div>
@@ -121,6 +136,18 @@
                     <a href="#" class="btn btn-github">View on GitHub</a>
                 </div>
             </div>
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Security Data Analysis</h3>
+                    <p>Comprehensive analysis of security data with visualizations to identify trends and patterns.</p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Data Analysis</span>
+                        <span>Visualization</span>
+                    </div>
+                    <a href="#" class="btn btn-github">View on GitHub</a>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -129,7 +156,33 @@
     <section id="resume" class="resume">
         <div class="section-content">
             <h2>Resume</h2>
-            <p><a href="Caleb-Welsh-Resume.pdf" target="_blank" class="btn btn-primary">Download my resume</a></p>
+            <p class="resume-intro">View my specialized resumes based on different career focuses:</p>
+            <div class="resume-grid">
+                <div class="resume-card">
+                    <h3>Security Engineering</h3>
+                    <p>Focus on security architecture, incident response, and threat detection.</p>
+                    <div class="resume-actions">
+                        <a href="#" class="btn btn-primary">View Resume</a>
+                        <a href="#" class="btn btn-secondary">Download PDF</a>
+                    </div>
+                </div>
+                <div class="resume-card">
+                    <h3>Cloud Security</h3>
+                    <p>Emphasis on cloud infrastructure security and DevSecOps practices.</p>
+                    <div class="resume-actions">
+                        <a href="#" class="btn btn-primary">View Resume</a>
+                        <a href="#" class="btn btn-secondary">Download PDF</a>
+                    </div>
+                </div>
+                <div class="resume-card">
+                    <h3>Security Research</h3>
+                    <p>Focused on vulnerability research, threat intelligence, and security analysis.</p>
+                    <div class="resume-actions">
+                        <a href="#" class="btn btn-primary">View Resume</a>
+                        <a href="#" class="btn btn-secondary">Download PDF</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -148,6 +201,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
+            <div class="logo footer-logo">CW</div>
             <p>&copy; 2025 Caleb Welsh. All rights reserved.</p>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/calebmwelsh" target="_blank" class="fab fa-linkedin"></a>
@@ -155,5 +209,12 @@
             </div>
         </div>
     </footer>
+
+    <!-- Scroll to top button -->
+    <button id="scrollToTop" class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="scripts.js"></script>
 </body>
 </html>

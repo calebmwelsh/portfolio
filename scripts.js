@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Optional: Add animation on scroll
+    // Animation on scroll
     const observerOptions = {
         threshold: 0.1
     };
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(typeWriter, 100);
             }
         };
-        typeWriter();
+        setTimeout(typeWriter, 500); // Delay start for better effect
     }
 
     // Add active state to navigation links
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            if (window.pageYOffset >= sectionTop - 60) {
+            if (window.pageYOffset >= sectionTop - 100) {
                 current = section.getAttribute('id');
             }
         });
@@ -80,21 +80,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Scroll to top functionality
     const scrollToTopButton = document.getElementById('scrollToTop');
+    
+    if (scrollToTopButton) {
+        // Show button when user scrolls down 200px
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 200) {
+                scrollToTopButton.classList.add('visible');
+            } else {
+                scrollToTopButton.classList.remove('visible');
+            }
+        });
 
-    // Show button when user scrolls down 200px
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 200) {
-            scrollToTopButton.classList.add('visible');
-        } else {
-            scrollToTopButton.classList.remove('visible');
-        }
+        // Smooth scroll to top when button is clicked
+        scrollToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Add animation to skill categories
+    const skillCategories = document.querySelectorAll('.skill-category');
+    skillCategories.forEach((category, index) => {
+        category.style.animationDelay = `${index * 0.2}s`;
+        category.classList.add('fadeInUp');
     });
 
-    // Smooth scroll to top when button is clicked
-    scrollToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    // Add hover effects to project cards
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-10px)';
+            card.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.15)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+            card.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
         });
     });
+
+    // Initialize navigation with active state
+    function setInitialActiveNav() {
+        const scrollPosition = window.scrollY;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionBottom = sectionTop + section.offsetHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                const currentId = section.getAttribute('id');
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }
+    
+    // Call on page load
+    setInitialActiveNav();
 });
