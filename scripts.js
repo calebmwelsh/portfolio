@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         body.dark-mode .skill-progress-bar {
-            background-color: #555555;
+            background-color: #ffffff;
         }
     `;
     document.head.appendChild(darkModeStyles);
