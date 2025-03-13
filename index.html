@@ -13,11 +13,11 @@
         <div class="nav-content">
             <div class="logo">CW</div>
             <ul class="nav-links">
-                <li><a href="#about"><span class="nav-number">1</span>About</a></li>
-                <li><a href="#skills"><span class="nav-number">2</span>Skills</a></li>
-                <li><a href="#projects"><span class="nav-number">3</span>Projects</a></li>
-                <li><a href="#resume"><span class="nav-number">4</span>Resume</a></li>
-                <li><a href="#contact"><span class="nav-number">5</span>Contact</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -27,6 +27,7 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1>Hi, I'm Caleb Welsh</h1>
+                <div class="typing-cursor"></div>
                 <p>Security Engineer | Researcher | Developer</p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -34,7 +35,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="1597785929513.jpg" alt="Caleb Welsh">
+                <img src="images/image.jpg" alt="Caleb Welsh">
             </div>
         </div>
     </header>
@@ -57,6 +58,9 @@
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3>Security & Automation</h3>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 95%"></div>
+                    </div>
                     <ul>
                         <li>Incident Response</li>
                         <li>Security Automation</li>
@@ -66,6 +70,9 @@
                 </div>
                 <div class="skill-category">
                     <h3>Cloud & Infrastructure</h3>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 90%"></div>
+                    </div>
                     <ul>
                         <li>AWS, Azure</li>
                         <li>Infrastructure as Code</li>
@@ -75,6 +82,9 @@
                 </div>
                 <div class="skill-category">
                     <h3>Programming</h3>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 85%"></div>
+                    </div>
                     <ul>
                         <li>Python, Bash, JavaScript</li>
                         <li>SIEM & Security Tools</li>
@@ -84,6 +94,9 @@
                 </div>
                 <div class="skill-category">
                     <h3>Soft Skills</h3>
+                    <div class="skill-progress">
+                        <div class="skill-progress-bar" style="width: 88%"></div>
+                    </div>
                     <ul>
                         <li>Problem-Solving</li>
                         <li>Team Leadership</li>
@@ -101,6 +114,11 @@
         <h2>Featured Projects</h2>
         <div class="projects-grid">
             <div class="project-card">
+                <div class="project-image-container">
+                    <div class="project-image" style="background-color: #333; height: 150px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-shield-alt" style="font-size: 3rem; color: white;"></i>
+                    </div>
+                </div>
                 <div class="project-info">
                     <h3>Automated Threat Detection</h3>
                     <p>Developed a system leveraging SIEM tools and ML to detect security anomalies.</p>
@@ -113,6 +131,11 @@
                 </div>
             </div>
             <div class="project-card">
+                <div class="project-image-container">
+                    <div class="project-image" style="background-color: #333; height: 150px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-cloud" style="font-size: 3rem; color: white;"></i>
+                    </div>
+                </div>
                 <div class="project-info">
                     <h3>Cloud Security Framework</h3>
                     <p>Designed security policies and infrastructure automation for cloud-based applications.</p>
@@ -125,6 +148,11 @@
                 </div>
             </div>
             <div class="project-card">
+                <div class="project-image-container">
+                    <div class="project-image" style="background-color: #333; height: 150px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-tools" style="font-size: 3rem; color: white;"></i>
+                    </div>
+                </div>
                 <div class="project-info">
                     <h3>Incident Response Toolkit</h3>
                     <p>Created a suite of scripts for rapid threat analysis and mitigation.</p>
@@ -137,6 +165,11 @@
                 </div>
             </div>
             <div class="project-card">
+                <div class="project-image-container">
+                    <div class="project-image" style="background-color: #333; height: 150px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-chart-bar" style="font-size: 3rem; color: white;"></i>
+                    </div>
+                </div>
                 <div class="project-info">
                     <h3>Security Data Analysis</h3>
                     <p>Comprehensive analysis of security data with visualizations to identify trends and patterns.</p>
@@ -195,6 +228,20 @@
                 <p>Email: <a href="mailto:caleb.welsh@gmail.com">caleb.welsh@gmail.com</a></p>
                 <p>LinkedIn: <a href="https://www.linkedin.com/in/calebmwelsh" target="_blank">calebmwelsh</a></p>
             </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-github">Send Message</button>
+                </form>
+            </div>
         </div>
     </section>
 
@@ -206,6 +253,7 @@
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/calebmwelsh" target="_blank" class="fab fa-linkedin"></a>
                 <a href="https://github.com/" target="_blank" class="fab fa-github"></a>
+                <a href="#" target="_blank" class="fab fa-twitter"></a>
             </div>
         </div>
     </footer>
@@ -213,6 +261,11 @@
     <!-- Scroll to top button -->
     <button id="scrollToTop" class="scroll-to-top">
         <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Dark mode toggle -->
+    <button id="darkModeToggle" class="dark-mode-toggle">
+        <i class="fas fa-moon"></i>
     </button>
 
     <script src="scripts.js"></script>
