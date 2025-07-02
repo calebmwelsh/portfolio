@@ -113,11 +113,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
     
-    // Check for saved theme preference or respect OS preference
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    // Always default to dark mode unless user explicitly sets light
     const currentTheme = localStorage.getItem('theme');
-    
-    if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+    if (currentTheme === 'light') {
+        body.classList.remove('dark-mode');
+        if (darkModeToggle) {
+            darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+    } else {
         body.classList.add('dark-mode');
         if (darkModeToggle) {
             darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
@@ -127,7 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (darkModeToggle) {
         darkModeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
-            
             // Update button icon
             if (body.classList.contains('dark-mode')) {
                 darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
